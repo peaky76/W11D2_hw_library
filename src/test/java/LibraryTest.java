@@ -10,7 +10,7 @@ public class LibraryTest {
 
     @Before
     public void before() {
-        library = new Library();
+        library = new Library(100);
         book = new Book("Mr Happy", "Roger Hargreaves", "Horror");
     }
 
@@ -23,5 +23,13 @@ public class LibraryTest {
     public void canAddBookToLibrary() {
         library.add(book);
         assertEquals(1, library.getBookCount());
+    }
+
+    @Test
+    public void checkLibraryHasSpace() {
+        for(int i = 0; i < 100; i ++) {
+            library.add(book);
+        }
+        assertEquals(false, library.hasSpace());
     }
 }

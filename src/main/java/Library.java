@@ -2,15 +2,13 @@ import java.util.ArrayList;
 
 public class Library {
 
-//    Write a method to add a book to the library stock.
-//    Add a capacity to the library and write a method to check if stock is full before adding a book.
-
     ArrayList<Book> books;
+    int capacity;
 
-    public Library() {
+    public Library(int capacity) {
         this.books = new ArrayList<Book>();
+        this.capacity = capacity;
     }
-
 
     public int getBookCount() {
         return this.books.size();
@@ -18,6 +16,12 @@ public class Library {
 
 
     public void add(Book book) {
-        this.books.add(book);
+        if (this.hasSpace()) {
+            this.books.add(book);
+        }
+    }
+
+    public boolean hasSpace() {
+        return this.getBookCount() < this.capacity;
     }
 }
