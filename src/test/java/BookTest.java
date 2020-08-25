@@ -27,4 +27,9 @@ public class BookTest {
         assertEquals("Horror", book.getGenre());
     }
 
+    @Test
+    public void newBookNotOnLoan() {
+        assertEquals(false, book.checkIsOnLoan());
+    }
+
 }
