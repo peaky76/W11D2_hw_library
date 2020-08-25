@@ -14,7 +14,6 @@ public class Library {
         return this.books.size();
     }
 
-
     public void add(Book book) {
         if (this.hasSpace()) {
             this.books.add(book);
@@ -23,5 +22,21 @@ public class Library {
 
     public boolean hasSpace() {
         return this.getBookCount() < this.capacity;
+    }
+
+    public int getBooksOnLoanCount() {
+        int count = 0;
+        for (Book book: this.books) {
+            if (book.getOnLoan() == true) {
+                count += 1;
+            }
+        }
+        return count;
+    }
+
+    public void lend(Book book) {
+        if (this.books.contains(book) && book.getOnLoan() == false) {
+            book.setOnLoan(true);
+        }
     }
 }

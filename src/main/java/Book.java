@@ -24,7 +24,11 @@ public class Book {
         return this.genre;
     }
 
-    public boolean checkIsOnLoan() {
-        return this.isOnLoan;
+    public Boolean getOnLoan() {
+        return isOnLoan;
+    }
+
+    public void setOnLoan(Boolean onLoan) {
+        isOnLoan = onLoan;
     }
 }

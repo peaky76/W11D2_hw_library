@@ -32,4 +32,16 @@ public class LibraryTest {
         }
         assertEquals(false, library.hasSpace());
     }
+
+    @Test
+    public void newLibraryHasNoBooksOnLoan() {
+        assertEquals(0, library.getBooksOnLoanCount());
+    }
+
+    @Test
+    public void canLoanBook() {
+        library.add(book);
+        library.lend(book);
+        assertEquals(1, library.getBooksOnLoanCount());
+    }
 }

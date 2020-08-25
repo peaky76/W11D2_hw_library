@@ -29,7 +29,13 @@ public class BookTest {
 
     @Test
     public void newBookNotOnLoan() {
-        assertEquals(false, book.checkIsOnLoan());
+        assertEquals(false, book.getOnLoan());
+    }
+
+    @Test
+    public void canBeMarkedOnLoan() {
+        book.setOnLoan(true);
+        assertEquals(true, book.getOnLoan());
     }
 
 }
